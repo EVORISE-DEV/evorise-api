@@ -1,0 +1,41 @@
+{
+  "name": "evorise-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "evorise-api": "file:",
+    "express": "^4.21.0",
+    "express-session": "^1.18.0",
+    "http-proxy-middleware": "^3.0.3",
+    "ioredis": "^5.4.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.15",
+    "otplib": "^12.0.1",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.3",
+    "redis": "^4.7.0",
+    "sequelize": "^6.37.3",
+    "socket.io": "^4.8.1",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "nodemon": "^3.1.4",
+    "prettier": "^1.19.1",
+    "sequelize-cli": "^5.5.1",
+    "sucrase": "^3.10.1"
+  }
+}
