@@ -32,7 +32,7 @@ class App {
 
         this.middlewares();
         this.routes();
-    }
+    } //teste
 
     middlewares() {
         this.app.use(cors(corsOptions));
