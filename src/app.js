@@ -3,7 +3,7 @@
 import express from 'express';
 import cors from 'cors';
 import routes from './routes';
-
+import path from 'path';
 // Importando nossa database
 import './database';
 
@@ -15,11 +15,12 @@ import { Server } from 'socket.io';
 import jwt from 'jsonwebtoken'; // Instale com: npm install jsonwebtoken
 import passport from './config/clientGoogle'; // Importe a configuração do Passport
 import session from 'express-session'; // Para utilizar sessões
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
 const corsOptions = {
-  origin: ['http://localhost:4200', 'http://192.168.0.62:4200'],
+  origin: ['http://localhost:4200', 'http://localhost:3000','http://192.168.0.62:4200', 'http://172.16.51.168:4200'],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -29,14 +30,19 @@ const corsOptions = {
 class App {
     constructor() {
         this.app = express();
-
         this.middlewares();
         this.routes();
-    } //teste
+    }
 
     middlewares() {
         this.app.use(cors(corsOptions));
         this.app.use(express.json());
+        this.app.use(cookieParser());
+
+        this.app.use(
+          '/uploads/events',
+          express.static(path.resolve(__dirname, '..', 'upload', 'events'))
+        );
 
         this.app.use(session({
           secret: process.env.SESSION_SECRET,
